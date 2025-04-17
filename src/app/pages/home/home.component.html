@@ -1,1 +1,18 @@
-<p>home works!</p>
+<app-search-bar />
+
+<div class="posts-header">
+  <h3>Fórum</h3>
+  <ngb-pagination
+    class="custom-paginator"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [maxSize]="5"
+    [collectionSize]="newPostsList.length"
+  />
+</div>
+<div class="posts-group">
+  @for(post of newPostsList| slice: (page-1) * pageSize : page * pageSize; track
+  post){
+  <app-post-card [postData]="post" />
+  }
+</div>

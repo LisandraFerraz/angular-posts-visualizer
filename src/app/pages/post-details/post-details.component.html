@@ -1,1 +1,10 @@
-<p>post-details works!</p>
+<div class="post-container">
+  <app-post-card [postData]="postData" />
+  <div class="comments-container">
+    @if(postData.commentQty > 1){
+    <div class="comment-thread"></div>
+    } @for(comment of postData.comments; track comment){
+    <app-comment-card [commentData]="comment" />
+    }
+  </div>
+</div>

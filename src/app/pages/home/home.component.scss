@@ -1,0 +1,10 @@
+.posts-header {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.posts-group {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}

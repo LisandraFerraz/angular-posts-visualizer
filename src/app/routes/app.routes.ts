@@ -5,7 +5,7 @@ import { ProfileDetailsComponent } from 'app/pages/profile-details/profile-detai
 
 export const routes: Routes = [
   {
-    path: '/',
+    path: 'home',
     component: HomeComponent,
   },
   {
@@ -18,7 +18,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   { path: '**', component: HomeComponent },

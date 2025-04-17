@@ -1,0 +1,23 @@
+<div class="card-container">
+  <div class="card-header">
+    <div class="pfp">
+      <img [src]="postData.pfp" [alt]="postData.username" />
+    </div>
+    <div>
+      <p (click)="navigateTo(postData)" class="post-title">
+        {{ postData.title }}
+      </p>
+      <p class="post-username">
+        Por <span> {{ postData.username }}</span>
+      </p>
+    </div>
+  </div>
+  <p>{{ postData.postContent }}</p>
+  @if(!isPostPage()){
+  <div class="card-bottom">
+    <span>
+      <i class="fa-solid fa-comments"></i> {{ postData.commentQty }}
+    </span>
+  </div>
+  }
+</div>

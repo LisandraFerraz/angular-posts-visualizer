@@ -1,3 +1,14 @@
+export interface IPostsDisplay {
+  userId: number;
+  postId: number;
+  username: string;
+  title: string;
+  postContent: string;
+  commentQty: number;
+  pfp: string;
+  comments: IComment[];
+}
+
 export interface IPosts {
   userId: number;
   id: number;
@@ -26,7 +37,7 @@ export interface IUser {
   };
 }
 
-export interface IComments {
+export interface IComment {
   postId: number;
   id: number;
   name: string;

@@ -1,0 +1,7 @@
+@import "@styles/_variables.scss";
+
+$white: map-get($colors, "white");
+$shadow_sm: map-get($box_shadow, "shadow_sm");
+
+.card-container {
+}

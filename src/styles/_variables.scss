@@ -1,0 +1,24 @@
+$colors: (
+  "white": #ffffff,
+
+  "default_bg": #ebecf1,
+  "grey": #3a4454,
+
+  "default_text": #111112,
+  "primary": #1b9aaa,
+);
+
+$font_size: (
+  "font_xxl": 2rem,
+  "font_xl": 1.8rem,
+  "font_lg": 1.5rem,
+  "font_md": 1.2rem,
+  "font_base": 1rem,
+  "font_sm": 0.8rem,
+);
+
+$box_shadow: (
+  "shadow_lg": 0 0 12px #00000074,
+  "shadow_md": 0 0 8px #00000074,
+  "shadow_sm": 0 0 4px #00000032,
+);

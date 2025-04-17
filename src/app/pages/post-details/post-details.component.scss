@@ -1,0 +1,24 @@
+@import "@styles/_variables.scss";
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    height: fit-content;
+    z-index: 1;
+
+    .comment-thread {
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      left: 25px;
+      border-right: 5px dotted rgb(map-get($colors, "grey"), 40%);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "@styles/_variables.scss";
+
+$primary: map-get($colors, "primary");
+$white: map-get($colors, "white");
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: $white;
+  position: fixed;
+  z-index: 9999;
+  overflow: hidden;
+
+  .loader {
+    z-index: 10;
+    width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: l5 1s infinite linear alternate;
+  }
+  @keyframes l5 {
+    0% {
+      box-shadow: 20px 0 $primary, -20px 0 #0002;
+      background: $primary;
+    }
+    33% {
+      box-shadow: 20px 0 $primary, -20px 0 #0002;
+      background: #0002;
+    }
+    66% {
+      box-shadow: 20px 0 #0002, -20px 0 $primary;
+      background: #0002;
+    }
+    100% {
+      box-shadow: 20px 0 #0002, -20px 0 $primary;
+      background: $primary;
+    }
+  }
+}
