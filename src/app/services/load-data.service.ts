@@ -1,18 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ContentService } from './content.service';
 import { forkJoin, map, Observable } from 'rxjs';
+import { pfpList } from 'app/shared/utils/pfps';
 
 @Injectable({ providedIn: 'root' })
 export class LoadDataService {
-  private pfpList = [
-    'pfp/male-icon-1.png',
-    'pfp/male-icon-2.png',
-    'pfp/male-icon-3.png',
-    'pfp/woman-icon-1.png',
-    'pfp/woman-icon-2.png',
-    'pfp/woman-icon-3.png',
-  ];
-
   constructor(private contentService: ContentService) {}
 
   getAllPostObjects(): Observable<any[]> {
@@ -25,7 +17,7 @@ export class LoadDataService {
         return posts.map((post) => {
           const user = users.find((u) => u.id === post.userId);
           const comment = comments.filter((c) => c.postId === post.id);
-          const random = Math.floor(Math.random() * this.pfpList.length);
+          const random = Math.floor(Math.random() * pfpList.length);
 
           return {
             userId: user!.id,
@@ -35,7 +27,7 @@ export class LoadDataService {
             postContent: post.body,
             commentQty: comment.length,
             comments: comment,
-            pfp: this.pfpList[random],
+            pfp: pfpList[random],
           };
         });
       })
@@ -54,7 +46,7 @@ export class LoadDataService {
 
         const user = users.find((u) => u.id === post.userId);
         const postComments = comments.filter((c) => c.postId === post.id);
-        const random = Math.floor(Math.random() * this.pfpList.length);
+        const random = Math.floor(Math.random() * pfpList.length);
 
         return {
           userId: user!.id,
@@ -64,7 +56,7 @@ export class LoadDataService {
           postContent: post.body,
           commentQty: postComments.length,
           comments: postComments,
-          pfp: this.pfpList[random],
+          pfp: pfpList[random],
         };
       })
     );

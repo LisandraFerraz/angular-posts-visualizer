@@ -10,7 +10,8 @@ import { IPostsDisplay } from 'app/shared/utils/interfaces/content-interfaces';
   styleUrl: './post-card.component.scss',
 })
 export class PostCardComponent {
-  @Input() postData!: IPostsDisplay;
+  @Input() postData!: any;
+  @Input() showPfp: boolean = true;
 
   constructor(private router: Router) {}
 
@@ -20,7 +21,11 @@ export class PostCardComponent {
     });
   }
 
+  navigateToUser(userId: number) {
+    this.router.navigateByUrl(`/profile/${userId}`);
+  }
+
   isPostPage(): boolean {
-    return !this.router.url.includes('home');
+    return this.router.url.includes('post');
   }
 }

@@ -7,11 +7,12 @@ export class Post {
 }
 
 export class User {
+  pfp?: string = '';
   id: number = 0;
   name: string = '';
   username: string = '';
   email: string = '';
-  adresses: {
+  address: {
     street: string;
     suite: string;
     city: string;

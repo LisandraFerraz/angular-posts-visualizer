@@ -26,3 +26,30 @@ $box_shadow: (
   "shadow_md": 0 0 8px #00000074,
   "shadow_sm": 0 0 4px #00000032,
 );
+
+.round-pfp {
+  border-radius: 100%;
+  border: 2px solid map-get($colors, "white");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  img {
+    flex-shrink: 0;
+    width: 85px;
+    height: 85px;
+  }
+}
+
+.custom-user-card {
+  position: relative;
+  z-index: 2;
+  background-color: map-get($colors, "white");
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: map-get($box_shadow, "shadow_sm");
+  width: 100%;
+  color: map-get($colors, "default_text");
+}

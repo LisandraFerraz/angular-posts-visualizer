@@ -1,14 +1,20 @@
-<div class="card-container">
+<div class="custom-user-card">
   <div class="custom-card-header">
-    <div class="pfp">
+    @if(showPfp){
+
+    <div class="round-pfp">
       <img [src]="postData.pfp" [alt]="postData.username" />
     </div>
+    }
     <div>
       <p (click)="navigateTo(postData)" class="post-title">
         {{ postData.title }}
       </p>
       <p class="post-username">
-        By <span> {{ postData.username }}</span>
+        By
+        <span (click)="navigateToUser(postData.userId)">
+          {{ postData.username }}</span
+        >
       </p>
     </div>
   </div>

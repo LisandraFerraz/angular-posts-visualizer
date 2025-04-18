@@ -1,9 +1,9 @@
 <div class="modal-header">
-  <h4 class="modal-title">Iniciar sessão</h4>
+  <h4 class="modal-title">Log in</h4>
 </div>
 
 <div class="modal-body">
-  <p>Escolha um usuário para utilizar a plataforma:</p>
+  <p>Select an account to proceed:</p>
 
   <div class="selection-container">
     <select
@@ -11,7 +11,7 @@
       name="userSelection"
       id="userSelection"
     >
-      <option value="0" selected>Selecione uma opção</option>
+      <option value="0" selected>Select a profile</option>
       @for(user of usersList; track user){
       <option [value]="user.id">{{ user.name }}</option>
       }
@@ -21,6 +21,6 @@
 
 @if(usersList && userSelected.id >0){
 <div class="modal-footer" @transitionHeight>
-  <button (click)="defineUser()">Confirmar</button>
+  <button class="btn" (click)="defineUser()">Confirm</button>
 </div>
 }

@@ -17,3 +17,13 @@
     color: map-get($colors, "error");
   }
 }
+
+.btn {
+  background-color: map-get($colors, "primary");
+  color: map-get($colors, "white");
+  transition: ease-out 0.2s;
+
+  &:focus {
+    opacity: 60%;
+  }
+}

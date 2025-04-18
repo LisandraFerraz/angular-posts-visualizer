@@ -77,10 +77,8 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
 
   getPostData() {
     const currentId = this.router.snapshot.params['id'];
-    console.log('id da url | ', currentId);
     this.loadDataService.getPostById(currentId).subscribe({
       next: (res) => {
-        console.log('res | ', res);
         this.postData = res;
         this.comments.set(res.comments);
       },

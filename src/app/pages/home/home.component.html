@@ -9,8 +9,7 @@
   />
 </div>
 <div class="posts-group">
-  @for(post of postsList| slice: (page-1) * pageSize : page * pageSize; track
-  post){
+  @for(post of postsList; track post) {
   <app-post-card [postData]="post" />
   }
 </div>

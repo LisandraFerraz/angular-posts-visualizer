@@ -28,10 +28,14 @@ export class ContentService {
   }
 
   getUser(id: number): Observable<IUser> {
-    return this.api.get(`${endpoints.users}?userId=${id}`);
+    return this.api.get(`${endpoints.users}/${id}`);
   }
 
   getAllComments(params?: {}): Observable<IComment[]> {
     return this.api.get(endpoints.comments, { params });
+  }
+
+  getPostByUser(id: number): Observable<IPost[]> {
+    return this.api.get(`${endpoints.comments}?userId=${id}`);
   }
 }
