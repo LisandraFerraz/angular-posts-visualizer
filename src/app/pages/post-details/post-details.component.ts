@@ -8,7 +8,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommentCardComponent } from 'app/shared/components/comment-card/comment-card.component';
 import { PostCardComponent } from 'app/shared/components/post-card/post-card.component';
 import {
@@ -23,7 +23,8 @@ import { ReplyService } from 'app/services/reply.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { SetUserService } from 'app/services/set-user.service';
 import { ContentService } from 'app/services/content.service';
-import { User } from 'app/shared/utils/classes/post-class';
+import { PostsDisplay, User } from 'app/shared/utils/classes/post-class';
+import { LoadDataService } from 'app/services/load-data.service';
 
 @Component({
   selector: 'app-post-details',
@@ -33,7 +34,7 @@ import { User } from 'app/shared/utils/classes/post-class';
   styleUrl: './post-details.component.scss',
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
-  postData!: IPostsDisplay;
+  postData: PostsDisplay = new PostsDisplay();
   comments = signal<IComment[]>([]);
 
   newComment!: IPost;
@@ -42,20 +43,15 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
   private sub$ = new Subject();
 
   constructor(
-    public router: Router,
+    public router: ActivatedRoute,
     private replyService: ReplyService,
-    private userService: SetUserService
-  ) {
-    const currentUrl = this.router.getCurrentNavigation();
-    const savedData = currentUrl?.extras.state?.['savedData'];
-
-    if (savedData) {
-      this.comments.set(savedData.comments);
-      this.postData = savedData;
-    }
-  }
+    private userService: SetUserService,
+    private loadDataService: LoadDataService
+  ) {}
 
   ngOnInit(): void {
+    this.getPostData();
+
     this.userService.activeUser$.subscribe((user) => {
       if (user) this.activeUser.set(user);
     });
@@ -72,10 +68,21 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
             },
           ]);
         }
-        console.log(this.comments());
       },
       error: (err) => {
         console.error(err);
+      },
+    });
+  }
+
+  getPostData() {
+    const currentId = this.router.snapshot.params['id'];
+    console.log('id da url | ', currentId);
+    this.loadDataService.getPostById(currentId).subscribe({
+      next: (res) => {
+        console.log('res | ', res);
+        this.postData = res;
+        this.comments.set(res.comments);
       },
     });
   }

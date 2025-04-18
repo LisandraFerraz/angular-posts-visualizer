@@ -4,6 +4,9 @@ $white: map-get($colors, "white");
 $shadow_sm: map-get($box_shadow, "shadow_sm");
 
 .custom-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: $white;
   box-shadow: $shadow_sm;
   height: 80px;
@@ -12,6 +15,7 @@ $shadow_sm: map-get($box_shadow, "shadow_sm");
   align-items: center;
   justify-content: space-between;
   padding: 0 35px;
+  z-index: 10;
 
   .searchbar-group {
     position: relative;
@@ -35,6 +39,16 @@ $shadow_sm: map-get($box_shadow, "shadow_sm");
       background-color: transparent;
       border: none;
       outline: none;
+    }
+  }
+
+  #dropdownBasic1 {
+    background-color: map-get($colors, "primary");
+    color: $white;
+    transition: ease-out 0.2s;
+
+    &:focus {
+      opacity: 60%;
     }
   }
 }

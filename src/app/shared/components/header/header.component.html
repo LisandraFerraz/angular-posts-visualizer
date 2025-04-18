@@ -6,7 +6,8 @@
     </button>
   </div>
 
-  <div ngbDropdown class="d-inline-block">
+  <div ngbDropdown class="d-flex align-items-center gap-3">
+    <span> Hey, {{ activeUser().name }}! </span>
     <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
       Account
     </button>

@@ -21,7 +21,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.userService.activeUser$.subscribe((user) => {
       if (!user || !user.id) {
-        console.log(user);
         this.openModalLogin();
       }
     });

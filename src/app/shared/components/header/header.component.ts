@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log('hi');
     this.router.navigate([`/`]);
     this.userService.cleanData();
   }

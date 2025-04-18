@@ -5,11 +5,11 @@
     [(page)]="page"
     [pageSize]="pageSize"
     [maxSize]="5"
-    [collectionSize]="newPostsList.length"
+    [collectionSize]="postsList.length"
   />
 </div>
 <div class="posts-group">
-  @for(post of newPostsList| slice: (page-1) * pageSize : page * pageSize; track
+  @for(post of postsList| slice: (page-1) * pageSize : page * pageSize; track
   post){
   <app-post-card [postData]="post" />
   }

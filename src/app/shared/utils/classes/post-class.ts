@@ -1,3 +1,5 @@
+import { IComment } from '../interfaces/content-interfaces';
+
 export class Post {
   userId: number = 0;
   title: string = '';
@@ -39,4 +41,15 @@ export class User {
     catchPhrase: '',
     bd: '',
   };
+}
+
+export class PostsDisplay {
+  userId: number = 0;
+  postId: number = 0;
+  username: string = '';
+  title: string = '';
+  postContent: string = '';
+  commentQty: number = 0;
+  pfp: string = '';
+  comments: IComment[] = [];
 }
