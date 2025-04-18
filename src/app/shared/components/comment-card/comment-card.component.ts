@@ -11,6 +11,4 @@ import { IComment } from 'app/shared/utils/interfaces/content-interfaces';
 })
 export class CommentCardComponent {
   @Input() commentData!: IComment;
-
-  constructor(private contentService: ContentService) {}
 }

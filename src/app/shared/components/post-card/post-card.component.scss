@@ -15,7 +15,7 @@ $default_text: map-get($colors, "default_text");
   width: 100%;
   color: $default_text;
 
-  .card-header {
+  .custom-card-header {
     display: flex;
     align-items: center;
     gap: 15px;

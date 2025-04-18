@@ -32,14 +32,14 @@ $shadow_sm: map-get($box_shadow, "shadow_sm");
     line-height: 20px;
     width: 100%;
 
-    .card-header {
+    .custom-card-header {
       span {
         font-weight: 600;
         opacity: 60%;
       }
     }
 
-    .card-body {
+    .custom-card-body {
       p {
         margin-top: 10px;
       }

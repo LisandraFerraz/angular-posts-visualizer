@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from 'app/services/content.service';
 import { PostCardComponent } from 'app/shared/components/post-card/post-card.component';
-import { SearchBarComponent } from 'app/shared/components/search-bar/search-bar.component';
 import {
   IComment,
   IPost,
@@ -11,16 +10,10 @@ import {
 import { forkJoin } from 'rxjs';
 import { NgbModal, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlicePipe } from '@angular/common';
-import { LoginModalComponent } from 'app/shared/components/login-modal/login-modal.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    PostCardComponent,
-    SearchBarComponent,
-    NgbPaginationModule,
-    SlicePipe,
-  ],
+  imports: [PostCardComponent, NgbPaginationModule, SlicePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -40,7 +33,6 @@ export class HomeComponent implements OnInit {
   pageSize: number = 5;
 
   ngOnInit(): void {
-    // this.openModalLogin();
     this.getUsernPost();
   }
 
@@ -91,14 +83,5 @@ export class HomeComponent implements OnInit {
       };
     });
     this.newPostsList = newList;
-  }
-
-  openModalLogin() {
-    console.log('hi');
-    this.ngModal.open(LoginModalComponent, {
-      centered: true,
-      animation: true,
-      backdrop: 'static',
-    });
   }
 }

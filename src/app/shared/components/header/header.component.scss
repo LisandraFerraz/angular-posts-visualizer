@@ -1,0 +1,40 @@
+@import "@styles/_variables.scss";
+
+$white: map-get($colors, "white");
+$shadow_sm: map-get($box_shadow, "shadow_sm");
+
+.custom-header {
+  background-color: $white;
+  box-shadow: $shadow_sm;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+
+  .searchbar-group {
+    position: relative;
+    input {
+      height: 45px;
+      width: 450px;
+      padding: 10px 50px 10px 10px;
+      border-radius: 100px;
+      outline: none;
+      border: 1px solid rgb(map-get($colors, "grey"), 40%);
+
+      &:focus {
+        box-shadow: $shadow_sm;
+      }
+    }
+    button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+}

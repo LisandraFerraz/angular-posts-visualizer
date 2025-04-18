@@ -1,0 +1,19 @@
+<div class="custom-header">
+  <div class="searchbar-group">
+    <input type="text" placeholder="Search post..." />
+    <button (click)="searchPost()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+
+  <div ngbDropdown class="d-inline-block">
+    <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
+      Account
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="goToProfile()">Profile</button>
+      <button ngbDropdownItem (click)="logout()">Switch Accounts</button>
+      <button ngbDropdownItem (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>
