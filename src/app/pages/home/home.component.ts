@@ -4,13 +4,14 @@ import { PostCardComponent } from 'app/shared/components/post-card/post-card.com
 import { SearchBarComponent } from 'app/shared/components/search-bar/search-bar.component';
 import {
   IComment,
-  IPosts,
+  IPost,
   IPostsDisplay,
   IUser,
 } from 'app/shared/utils/interfaces/content-interfaces';
 import { forkJoin } from 'rxjs';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlicePipe } from '@angular/common';
+import { LoginModalComponent } from 'app/shared/components/login-modal/login-modal.component';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -24,9 +25,12 @@ import { SlicePipe } from '@angular/common';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor(private contentService: ContentService) {}
+  constructor(
+    private contentService: ContentService,
+    private ngModal: NgbModal
+  ) {}
 
-  postsList: IPosts[] = [];
+  postsList: IPost[] = [];
   usersList: IUser[] = [];
   commentList: IComment[] = [];
 
@@ -36,6 +40,7 @@ export class HomeComponent implements OnInit {
   pageSize: number = 5;
 
   ngOnInit(): void {
+    // this.openModalLogin();
     this.getUsernPost();
   }
 
@@ -86,5 +91,14 @@ export class HomeComponent implements OnInit {
       };
     });
     this.newPostsList = newList;
+  }
+
+  openModalLogin() {
+    console.log('hi');
+    this.ngModal.open(LoginModalComponent, {
+      centered: true,
+      animation: true,
+      backdrop: 'static',
+    });
   }
 }

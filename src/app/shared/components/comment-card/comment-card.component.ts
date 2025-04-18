@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {
-  IComment,
-  IPostsDisplay,
-} from 'app/shared/utils/interfaces/content-interfaces';
+import { ContentService } from 'app/services/content.service';
+import { IComment } from 'app/shared/utils/interfaces/content-interfaces';
 
 @Component({
   selector: 'app-comment-card',
@@ -14,7 +12,5 @@ import {
 export class CommentCardComponent {
   @Input() commentData!: IComment;
 
-  ngOnInit(): void {
-    // console.log(this.commentData);
-  }
+  constructor(private contentService: ContentService) {}
 }

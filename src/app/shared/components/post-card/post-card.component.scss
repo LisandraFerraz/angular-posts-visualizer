@@ -3,14 +3,17 @@
 $white: map-get($colors, "white");
 $shadow_sm: map-get($box_shadow, "shadow_sm");
 $primary: map-get($colors, "primary");
+$default_text: map-get($colors, "default_text");
 
 .card-container {
+  position: relative;
+  z-index: 2;
   background-color: $white;
   padding: 25px;
   border-radius: 10px;
   box-shadow: $shadow_sm;
   width: 100%;
-  color: map-get($colors, "default_text");
+  color: $default_text;
 
   .card-header {
     display: flex;
@@ -59,6 +62,11 @@ $primary: map-get($colors, "primary");
         }
       }
     }
+  }
+
+  .post-content {
+    margin-top: 10px;
+    color: $default_text;
   }
 
   .card-bottom {

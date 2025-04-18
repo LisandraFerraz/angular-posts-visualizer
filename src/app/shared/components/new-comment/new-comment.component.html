@@ -1,0 +1,11 @@
+<div class="comment-box-container">
+  <div class="textarea-group">
+    <textarea
+      name="newcomment"
+      id="newcomment"
+      placeholder="Poste uma resposta..."
+      [(ngModel)]="body.body"
+    ></textarea>
+    <button (click)="postComment()">Comentar</button>
+  </div>
+</div>

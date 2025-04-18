@@ -1,18 +1,31 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "@styles/_variables.scss";
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
+
 html,
 body {
+  display: block;
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: "Trebuchet MS", Arial, sans-serif;
   background-color: map-get($colors, "default_bg");
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea {
+  padding: 0;
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
 .custom-paginator {

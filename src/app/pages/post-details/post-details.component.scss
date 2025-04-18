@@ -3,22 +3,39 @@
 .post-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  height: 100%;
+  position: relative;
+  padding-bottom: 150px;
 
-  .comments-container {
+  .post-group {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    position: relative;
-    height: fit-content;
-    z-index: 1;
+    overflow: auto;
+    padding: 10px;
+    // height: 800px;
+    margin-bottom: 3%;
 
-    .comment-thread {
-      z-index: -1;
-      position: absolute;
-      height: 100%;
-      left: 25px;
-      border-right: 5px dotted rgb(map-get($colors, "grey"), 40%);
+    .comments-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      position: relative;
+      height: fit-content;
+      z-index: 1;
+
+      .comment-thread {
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        left: 20px;
+        bottom: 65px;
+        border-right: 5px dotted rgb(map-get($colors, "grey"), 40%);
+      }
     }
   }
+}
+:host {
+  display: block;
+  height: 100%;
 }

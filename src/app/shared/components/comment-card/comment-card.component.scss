@@ -4,4 +4,45 @@ $white: map-get($colors, "white");
 $shadow_sm: map-get($box_shadow, "shadow_sm");
 
 .card-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: map-get($colors, "default_text");
+
+  .pfp {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1000px;
+    background-color: map-get($colors, "soft_lilac");
+
+    i {
+      font-size: map-get($font_size, "font_lg");
+      color: map-get($colors, "lilac");
+    }
+  }
+  .card {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: $shadow_sm;
+    padding: 15px;
+    line-height: 20px;
+    width: 100%;
+
+    .card-header {
+      span {
+        font-weight: 600;
+        opacity: 60%;
+      }
+    }
+
+    .card-body {
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
 }

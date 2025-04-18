@@ -8,11 +8,11 @@
         {{ postData.title }}
       </p>
       <p class="post-username">
-        Por <span> {{ postData.username }}</span>
+        By <span> {{ postData.username }}</span>
       </p>
     </div>
   </div>
-  <p>{{ postData.postContent }}</p>
+  <p class="post-content">{{ postData.postContent }}</p>
   @if(!isPostPage()){
   <div class="card-bottom">
     <span>
