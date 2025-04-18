@@ -1,5 +1,6 @@
 <div class="posts-header">
   <h3>Fórum</h3>
+  @if(postsList.length > 5){
   <ngb-pagination
     class="custom-paginator"
     [(page)]="page"
@@ -7,9 +8,12 @@
     [maxSize]="5"
     [collectionSize]="postsList.length"
   />
+  }
 </div>
 <div class="posts-group">
-  @for(post of postsList; track post) {
+  @for(post of postsList| slice: (page-1) * pageSize : page * pageSize; track
+  post){
+
   <app-post-card [postData]="post" />
   }
 </div>

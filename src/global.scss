@@ -70,3 +70,22 @@ textarea {
     }
   }
 }
+
+select {
+  width: 100%;
+  margin: 10px 0;
+  height: 45px;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: map-get($box_shadow, "shadow_sm");
+}
+
+.btn {
+  background-color: map-get($colors, "primary");
+  color: map-get($colors, "white");
+  transition: ease-out 0.2s;
+
+  &:focus {
+    opacity: 60%;
+  }
+}

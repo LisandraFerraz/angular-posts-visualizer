@@ -4,12 +4,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ContentService } from 'app/services/content.service';
 import { SetUserService } from 'app/services/set-user.service';
 import { transitionHeight } from 'app/shared/utils/animations/height.animation';
-import { IUser } from 'app/shared/utils/interfaces/content-interfaces';
+import {
+  IUser,
+  IUserSelection,
+} from 'app/shared/utils/interfaces/content-interfaces';
 
-interface IUserSelection {
-  id: number;
-  name: string;
-}
 @Component({
   selector: 'app-login-modal',
   standalone: true,

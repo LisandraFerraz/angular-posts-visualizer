@@ -7,9 +7,9 @@ import { pfpList } from 'app/shared/utils/pfps';
 export class LoadDataService {
   constructor(private contentService: ContentService) {}
 
-  getAllPostObjects(): Observable<any[]> {
+  getAllPostObjects(params?: {}): Observable<any[]> {
     return forkJoin({
-      posts: this.contentService.getAllPosts(),
+      posts: this.contentService.getAllPosts(params),
       users: this.contentService.getAllUsers(),
       comments: this.contentService.getAllComments(),
     }).pipe(

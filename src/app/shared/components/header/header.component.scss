@@ -1,7 +1,9 @@
 @import "@styles/_variables.scss";
 
 $white: map-get($colors, "white");
+$primary: map-get($colors, "primary");
 $shadow_sm: map-get($box_shadow, "shadow_sm");
+$font_lg: map-get($font_size, "font_lg");
 
 .custom-header {
   position: fixed;
@@ -17,28 +19,43 @@ $shadow_sm: map-get($box_shadow, "shadow_sm");
   padding: 0 35px;
   z-index: 10;
 
-  .searchbar-group {
-    position: relative;
-    input {
-      height: 45px;
-      width: 450px;
-      padding: 10px 50px 10px 10px;
-      border-radius: 100px;
-      outline: none;
-      border: 1px solid rgb(map-get($colors, "grey"), 40%);
+  div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 
-      &:focus {
-        box-shadow: $shadow_sm;
+    i.fa-house {
+      font-size: $font_lg;
+      opacity: 60%;
+      transition: ease-out 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+        color: $primary;
       }
     }
-    button {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      border: none;
-      outline: none;
+
+    .searchbar-group {
+      position: relative;
+      .fake-input {
+        height: 45px;
+        width: 450px;
+        padding: 10px 50px 10px 10px;
+        border-radius: 100px;
+        outline: none;
+        border: 1px solid rgb(map-get($colors, "grey"), 40%);
+        cursor: pointer;
+      }
+      span {
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
     }
   }
 

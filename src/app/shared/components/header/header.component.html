@@ -1,9 +1,12 @@
 <div class="custom-header">
-  <div class="searchbar-group">
-    <input type="text" placeholder="Search post..." />
-    <button (click)="searchPost()">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+  <div>
+    <i (click)="navigateTo()" class="fa-solid fa-house"></i>
+    <div class="searchbar-group">
+      <div class="fake-input" (click)="searchPost()">Search post...</div>
+      <span>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </span>
+    </div>
   </div>
 
   <div ngbDropdown class="d-flex align-items-center gap-3">

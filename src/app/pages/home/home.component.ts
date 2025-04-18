@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentService } from 'app/services/content.service';
 import { PostCardComponent } from 'app/shared/components/post-card/post-card.component';
 import { IPostsDisplay } from 'app/shared/utils/interfaces/content-interfaces';
-import { NgbModal, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { SlicePipe } from '@angular/common';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadDataService } from 'app/services/load-data.service';
+import { SearchServiceService } from 'app/services/search-service.service';
+import { switchMap } from 'rxjs';
+import { SlicePipe } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -13,7 +14,10 @@ import { LoadDataService } from 'app/services/load-data.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor(private loadDataService: LoadDataService) {}
+  constructor(
+    private loadDataService: LoadDataService,
+    private searchService: SearchServiceService
+  ) {}
 
   postsList: IPostsDisplay[] = [];
 
@@ -21,6 +25,13 @@ export class HomeComponent implements OnInit {
   pageSize: number = 5;
 
   ngOnInit(): void {
+    this.searchService.searchTerm$
+      .pipe(
+        switchMap((params) => this.loadDataService.getAllPostObjects(params))
+      )
+      .subscribe((res) => {
+        this.postsList = res;
+      });
     this.getUsernPost();
   }
 

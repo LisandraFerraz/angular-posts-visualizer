@@ -44,3 +44,8 @@ export interface IComment {
   email: string;
   body: string;
 }
+
+export interface IUserSelection {
+  id: number;
+  name: string;
+}

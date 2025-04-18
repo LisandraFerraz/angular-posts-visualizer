@@ -3,27 +3,8 @@
 .selection-container {
   display: block;
 
-  select {
-    width: 100%;
-    margin: 10px 0;
-    height: 45px;
-    border-radius: 4px;
-    outline: none;
-    box-shadow: map-get($box_shadow, "shadow_sm");
-  }
-
   p {
     text-align: end;
     color: map-get($colors, "error");
-  }
-}
-
-.btn {
-  background-color: map-get($colors, "primary");
-  color: map-get($colors, "white");
-  transition: ease-out 0.2s;
-
-  &:focus {
-    opacity: 60%;
   }
 }

@@ -6,6 +6,17 @@ export class Post {
   body: string = '';
 }
 
+export class PostsDisplay {
+  userId: number = 0;
+  postId: number = 0;
+  username: string = '';
+  title: string = '';
+  postContent: string = '';
+  commentQty: number = 0;
+  pfp: string = '';
+  comments: IComment[] = [];
+}
+
 export class User {
   pfp?: string = '';
   id: number = 0;
@@ -42,15 +53,4 @@ export class User {
     catchPhrase: '',
     bd: '',
   };
-}
-
-export class PostsDisplay {
-  userId: number = 0;
-  postId: number = 0;
-  username: string = '';
-  title: string = '';
-  postContent: string = '';
-  commentQty: number = 0;
-  pfp: string = '';
-  comments: IComment[] = [];
 }

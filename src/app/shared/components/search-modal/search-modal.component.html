@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title">Search author's post</h4>
+</div>
+
+<div class="modal-body">
+  <p>Choose the author of the post you want to search for:</p>
+
+  <div class="selection-container">
+    <select
+      [(ngModel)]="authorSelected"
+      name="userSelection"
+      id="userSelection"
+    >
+      <option value="0" selected>Select a profile</option>
+      @for(user of usersList; track user){
+      <option [value]="user.id">{{ user.name }}</option>
+      }
+    </select>
+  </div>
+</div>
+@if(usersList && authorSelected >0){
+<div class="modal-footer" @transitionHeight>
+  <button class="btn" (click)="searchUser()">Search</button>
+</div>
+}

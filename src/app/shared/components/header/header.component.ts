@@ -1,8 +1,9 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SetUserService } from 'app/services/set-user.service';
 import { User } from 'app/shared/utils/classes/post-class';
+import { SearchModalComponent } from '../search-modal/search-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,11 @@ import { User } from 'app/shared/utils/classes/post-class';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  constructor(private userService: SetUserService, private router: Router) {}
+  constructor(
+    private userService: SetUserService,
+    private router: Router,
+    private modalService: NgbModal
+  ) {}
 
   activeUser = signal<User>(new User());
 
@@ -22,12 +27,20 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  navigateTo() {
+    this.router.navigate([`/`]);
+  }
+
   logout() {
     this.router.navigate([`/`]);
     this.userService.cleanData();
   }
 
-  searchPost() {}
+  searchPost() {
+    this.modalService.open(SearchModalComponent, {
+      centered: true,
+    });
+  }
 
   goToProfile() {
     this.router.navigate([`/profile/${this.activeUser().id}`]);
